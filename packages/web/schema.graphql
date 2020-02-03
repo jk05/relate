@@ -4,30 +4,10 @@
 # -----------------------------------------------
 
 type Mutation {
-  addRecipe(newRecipeData: NewRecipeInput!): Recipe!
-  removeRecipe(id: String!): Boolean!
-}
-
-input NewRecipeInput {
-  title: String!
-  description: String
-  ingredients: [String!]!
+  startDBMS(identifier: String!): Boolean!
+  stopDBMS(identifier: String!): Boolean!
 }
 
 type Query {
-  getHello: String!
-  getGoodbye: String!
-  recipe(id: String!): Recipe!
-  recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
-}
-
-type Recipe {
-  id: ID!
-  title: String!
-  description: String
-  ingredients: [String!]!
-}
-
-type Subscription {
-  recipeAdded: Recipe!
+  statusDBMS(identifier: String!): Boolean!
 }

@@ -52,6 +52,7 @@
     },
     "dependencies": {
         "@daedalus/common": "1.0.0",
+        "env-paths": "2.2.0",
         "fs-extra": "8.1.0"
     }
 }

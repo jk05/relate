@@ -1,17 +1,17 @@
-import {Query, Resolver} from '@nestjs/graphql';
+// import {Query} from '@nestjs/graphql';
 import {Inject} from '@nestjs/common';
 import {HelloService} from '@daedalus/common';
 
-@Resolver(() => String)
+// @Resolver(() => String)
 export class HelloResolver {
     constructor(@Inject(HelloService) private readonly helloService: HelloService) {}
 
-    @Query(() => String)
+    // @Query(() => String)
     getHello(): string {
         return this.helloService.getHello();
     }
 
-    @Query(() => String)
+    // @Query(() => String)
     getGoodbye(): string {
         return this.helloService.getGoodbye();
     }
