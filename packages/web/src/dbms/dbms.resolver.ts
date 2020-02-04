@@ -1,7 +1,7 @@
 import {Resolver, Args, Mutation, Query} from '@nestjs/graphql';
 import {HttpException, HttpStatus, Inject} from '@nestjs/common';
 
-import {AccountProvider} from '../tmp_accounts/account.provider';
+import {AccountProvider} from '../tmp_accounts';
 
 @Resolver(() => String)
 export class DBMSResolver {

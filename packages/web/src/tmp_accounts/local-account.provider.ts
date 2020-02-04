@@ -4,7 +4,7 @@ import envPaths from 'env-paths';
 import {spawn} from 'child_process';
 import {access, constants} from 'fs';
 
-import {BaseAccount} from './base-account';
+import {AccountProvider} from './account.provider';
 
 const neo4j = (dbmsID: string, command: string) =>
     new Promise<boolean>((resolve, reject) => {
@@ -33,7 +33,7 @@ const neo4j = (dbmsID: string, command: string) =>
     });
 
 @Injectable()
-export class AccountProvider implements BaseAccount {
+export class LocalAccountProvider extends AccountProvider {
     startDBMS(uuid: string): Promise<boolean> {
         return neo4j(uuid, 'start');
     }

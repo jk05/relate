@@ -1,10 +1,10 @@
 import {Module} from '@nestjs/common';
 
-import {AccountProvider} from './local-account.provider';
+import {LocalAccountProvider} from './local-account.provider';
 
 @Module({
-    exports: [AccountProvider],
+    exports: [LocalAccountProvider],
     imports: [],
-    providers: [AccountProvider],
+    providers: [LocalAccountProvider],
 })
 export class AccountModule {}
