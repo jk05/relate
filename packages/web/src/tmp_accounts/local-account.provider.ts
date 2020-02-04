@@ -1,10 +1,10 @@
-import {Injectable} from '@nestjs/common';
 import path from 'path';
 import envPaths from 'env-paths';
 import {spawn} from 'child_process';
 import {access, constants} from 'fs';
 
 import {AccountProvider} from './account.provider';
+import {AbstractInjectable} from '../decorators';
 
 const neo4j = (dbmsID: string, command: string) =>
     new Promise<boolean>((resolve, reject) => {
@@ -32,7 +32,9 @@ const neo4j = (dbmsID: string, command: string) =>
         });
     });
 
-@Injectable()
+@AbstractInjectable({
+    provider: AccountProvider,
+})
 export class LocalAccountProvider extends AccountProvider {
     startDBMS(uuid: string): Promise<boolean> {
         return neo4j(uuid, 'start');
